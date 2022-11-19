@@ -1,0 +1,14 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexkai.css);
+
+font-family: 'cwTeXKai', serif;
+
+
+//要同時改css檔名
+//Noto Sans TC -->notosanstc.css
+//cwTeXKai-->cwtexkai.css
+
+1. cwTeXKai (Chinese Traditional) 楷體字體
+2. cwTeXYen (Chinese Traditional) 圓體字體
+3. cwTeXFangSong (Chinese Traditional) 仿宋體字體
+4. Noto Sans TC (Chinese Traditional) 黑體字體（思源黑體）
+5. cwTeXMing (Chinese Traditional) 明體字體
