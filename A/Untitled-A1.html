@@ -1,0 +1,573 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+
+
+<title>
+  M5Stack主機
+</title>
+<link rel="stylesheet" type="text/css" href="https://static-cdn.m5stack.com/resource/public/compressed/styles/main.min.css?v=rsy8qw0j2b" />
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+		<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+	<style>
+		*{
+			
+			padding: 0;
+			margin: 0;
+			text-decoration: none;
+			list-style: none;
+			box-sizing: border-box;
+		}
+		body{
+			
+			font-family: montserrat;
+		}
+		nav{
+    height: 80px;
+    width: 100%;
+		}
+		label.logo{
+    color: rgba(35,35,35,1.00);
+    font-size: 35px;
+    line-height: 80px;
+    padding-top: 0;
+    padding-right: 25px;
+    padding-bottom: 0;
+    font-weight: bold;
+    padding-left: 35px;
+    text-shadow: 0 0;
+		}
+		nav ul{
+    background-color: rgba(190,190,190,1.00);
+    padding-right: 35px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
+    text-align: left;
+		}
+		nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin-top: 0;
+    margin-right: 2px;
+    margin-left: 3%;
+		}
+		nav ul li a{
+    color: rgba(35,35,35,1.00);
+    font-size: 18px;
+    padding-right: 13px;
+    padding-left: 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    padding-top: 7px;
+		}
+		a.active,a:hover{
+    transition: .5s;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 5px rgba(135,225,253,1.00);
+		}
+	.checkbtn{
+    font-size: 30px;
+    color: #C3C3C3;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+		}
+		#check{
+			display: none;
+		}
+.head {
+    text-align: left;
+    clear: both;
+    margin-top: 18px;
+}
+.logo a {
+    color: rgba(0,100,61,1.00);
+}
+		@media(max-width:952px){
+			label.logo{
+				font-size: 30px;
+				padding-left: 50px;
+				
+			}
+			nav ul li a{
+				font-size: 16px;
+			}	
+		}
+		@media(max-width:858px){
+			.checkbtn{
+				display: block;
+			}
+			ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 80px;
+    left: 0;
+    text-align: center;
+						}
+			nav ul li{
+    display: table-caption;
+    margin-top: 50px;
+    margin-right: 0;
+    margin-bottom: 50px;
+    line-height: 30px;
+					}
+			nav ul li a{
+    font-size: 20px;
+    width: 0px;
+			}
+			a:hover,a.active{
+    background: none;
+    color: #57A0F8;
+    opacity: 1;
+			}
+			#check:checked ~ ul{
+    left: 0;
+    opacity: 0.5;
+			}
+		}
+		.back-video{
+    opacity: 0.3;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+				}
+		@media (min-aspect-ratio:16/9){
+			.back-video{
+    width: 100%;
+    height: auto;
+			}
+		}
+		@media (max-aspect-ratio:16/9){
+			.back-video{
+    width: auto;
+    height: 100%;
+			}
+			
+		}
+		
+		.cta a{
+    border-left: 5px solid #02C3BA;
+    border-right: 2px solid #02C3BA;
+    border-bottom: 5px solid #02C3BA;
+    border-top: 2px solid #02C3BA;
+    background-color: #02C3BA;
+    padding-right: 35px;
+    padding-left: 35px;
+    padding-bottom: 5px;
+    color: #fff;
+    font-size: 35px;
+    text-decoration: none;
+    transition: 0.3s;
+    border-radius: 18px;
+    margin-left: 55px;
+    padding-top: 10px;
+		}
+		.cta a:hover{
+			background: none;
+			color: #02C3BA;
+		}
+		.hero{
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    padding-top: 0px;
+    margin-left: 16px;
+    padding-left: 20px;
+    margin-top: 250px;
+    margin-bottom: 120px;
+		}
+		
+		
+		.hero .caption{
+			width: 100%;
+			text-align: left;
+			animation: caption-anim 2s ease;
+		}
+		@keyframes caption-anim {
+			0%{
+				opacity: 0;
+				transform: translatex(-1000px);
+		}
+			100%{
+				opacity: 1;
+				transform: translateY(0px);
+			}
+		}
+		
+		.caption .head{
+			margin-bottom: 70px;
+		}
+		.caption .head h1{
+    font-size: 46px;
+    font-weight: 500;
+    color: #494964;
+    clear: both;
+		}
+		.caption .head p{
+			font-size: 20px;
+			color: #494964;
+		}
+		.svg{
+    text-align: center;
+		}
+		.svg img{
+    width: 80%;
+    filter: drop-shadow(0 25px 25px black);
+    padding-right: 10px;
+    padding-left: 25px;
+    margin-left: 10px;
+    padding-top: 60px;
+    filter: drop-shadow(0 5px 5px black);
+    animation: svg-drop 2.3s ease;
+		}
+		
+		@keyframes svg-drop{
+			0%{
+				opacity: 0;
+				transform: translateY(-80px);
+		}
+			100%{
+				opacity: 1;
+				transform: translateY(0px);
+			}
+		}
+		
+	</style>
+</head>
+
+
+<body class="pc">
+  <header>
+  <!-- <div class="header-top">
+    <div class="top-content">
+      
+      <div class="language-btn">
+        LANGUAGE: 
+      </div>
+      
+      <div class="right-btn">
+        
+        <span class="search-btn">
+          <img src="header/search.svg" />
+        </span>
+        
+        
+          <a class="shop-btn" href="https://m5stack-store.myshopify.com/cart" target="_blank">
+            <img src="header/shopping_cart.svg" />
+          </a>
+          <span class="btn-divider"></span>
+          <a class="user-btn" href="https://m5stack-store.myshopify.com/account/login" target="_blank">
+            <img src="header/user.svg" />
+          </a>
+      </div>
+    </div>
+  </div> -->
+
+            
+       
+        
+          
+          
+          
+        
+          
+          
+            
+        
+  
+  
+      
+
+     
+
+                
+
+
+  
+</header>
+
+<script>
+  $(".logo").click(function () {
+    let path = window.location.pathname;
+    if (/(\/zh-cn)/g.test(path)) {
+      window.location.href = '/zh-cn';
+
+    } else {
+      window.location.href = '/';
+
+    }
+  });
+
+  $(".language-btn").click(function () {
+    let htmlLang = 'en';
+    let path = window.location.pathname;
+    if (/(\/zh-cn)/g.test(path)) {
+      window.location.pathname = path.replace(/(\/zh-cn)/, '');
+    } else {
+      window.location.pathname = '/zh-cn' + path;
+    }
+  });
+  // $(".search-btn").click(function () {
+  //   $(".nav-dropdown").fadeOut('fast');
+  //   $("#search-wrapper").addClass('active');
+  //   $("body").addClass("no-scroll");
+  // });
+
+
+  //mb
+  $(".mobile-return-icon").click(function () {
+    let htmlLang = 'en';
+    window.location.pathname = htmlLang === 'en' ? '/' : '/zh-cn';
+  });
+  $(".mobile-nav-icon").click(function (ev) {
+    $(ev.target).toggleClass('active');
+    $(".header-nav").toggleClass('show');
+    if ($(".header-nav").hasClass("show")) {
+      let path = window.location.pathname;
+      let idx = -1;
+      if (/(\/about-us)/ig.test(path)) {
+        idx = 4;
+      } else if (/(\/solution)/ig.test(path)) {
+        idx = 1;
+      } else if (/(\/uiflow)/ig.test(path)) {
+        idx = 3;
+      } else if (/(\/explore)/ig.test(path)) {
+        idx = 6;
+      } else if (/^(\/||\/zh-cn)$/ig.test(path)) {
+        idx = 0;
+      }
+      if (idx > -1) {
+        $(`.header-nav-item:eq(${idx})`).addClass('selected');
+      }
+    }
+  });
+
+  if ('false' === 'false') {
+    /* pc */
+    $(".nav-dropdown").hide();
+    $(".header-nav-item").mouseover(function (ev) {
+      let target = ev.target;
+      if (target.className.indexOf('header-nav-item-a') > -1) {
+        target = target.parentElement;
+      }
+
+      $(".nav-dropdown").hide();
+      $(`#${target.dataset.id}`).show();
+      let _scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop
+
+      let h = $('header')[0].clientHeight;
+      if ( _scrollTop < h) {
+        $(`#${target.dataset.id}`).css('top',`${h - _scrollTop}px`);
+      }
+    });
+
+    $(".nav-dropdown").mouseleave(function () {
+      $(".nav-dropdown").fadeOut('fast');
+    });
+    $(window).scroll(function (event) {
+      $(".nav-dropdown").hide();
+    });
+  } else {
+    /* mb */
+    /* 二级菜单*/
+    $(".header-nav-item").click(function (e) {
+      if (e.target.dataset.id === 'home') {
+        let path = window.location.pathname;
+        if (['/', '/en', '/zh-cn'].indexOf(path) > -1) {
+          return;
+        }
+        if (/(\/zh-cn)/g.test(path)) {
+          window.open('/zh-cn');
+        } else {
+          window.open('/');
+        }
+        return;
+      }
+
+      if (e.target.dataset.ismb && e.target.dataset.ismb === "false") return;
+
+      let target = e.target;
+      let navUl = e.target.nextElementSibling;
+      if (e.target.className.indexOf('header-mbnav-btn') > -1) {
+        target = e.target.parentElement;
+        navUl = e.target.parentElement.nextElementSibling;
+      }
+
+      let targetId = target.dataset.id;
+      $(`.header-nav-item[data-id!=${targetId}]`).removeClass('active');
+      $(".dropdown-item").removeClass('active');
+      $(target).toggleClass('active');
+    });
+    /* 三级菜单*/
+    $(".dropdown-nav-li[data-layout='1'][data-type='title']").click(function (e) {
+      let target = e.target;
+      let childrenNav = e.target.parentElement.nextElementSibling;
+      if (!childrenNav) return;
+      let targetId = target.parentElement.parentElement.dataset.id;
+      $(`.dropdown-item[data-layout="1"][data-id!=${targetId}]`).removeClass('active');
+      $(target.parentElement.parentElement).toggleClass('active');
+    });
+  }
+</script>
+
+    
+
+
+<script>
+  $(document).ready(function () {
+    $('.banner-wrapper').slick({
+      dots: false,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      adaptiveHeight: true,
+      initialSlide: 0,
+      autoplay: true,
+      autoplaySpeed: 9000
+    });
+  });
+  /* 活动海报 */
+  // var bannerTimer = setInterval(() => {
+  //   bannerSlideIn();
+  //   bannerSlideOut();
+  //   updateClass();
+  // }, 9000);
+
+  // function bannerSlideIn() {
+  //   $('.banner.hide').css({
+  //     'transform': 'translate(0, 0)',
+  //     'z-index': '2'
+  //   });
+  // }
+
+  // function bannerSlideOut() {
+  //   $('.banner.show').css({
+  //     'transform': 'translate(-100%, 0)',
+  //     'z-index': '1'
+  //   });
+  // }
+
+  // function updateClass() {
+  //   var _timer = setTimeout(() => {
+  //     var hideEl = $('.banner.hide');
+  //     var showEl = $('.banner.show');
+
+  //     console.log(hideEl)
+  //     hideEl.removeClass('hide').addClass('show');
+  //     showEl.removeClass('show').addClass('hide');
+  //     showEl.css('transform', 'translate(100%, 0)');
+  //     clearTimeout(_timer);
+  //   }, 800);
+  // }
+
+</script>
+
+	<nav>
+	<video autoplay loop muted plays-inline class="back-video">
+		<source src="yt1s.com - M5Stack IoT智慧盆栽環境偵測雲端儲存_1080p.mp4">
+	  </video>
+	
+	<label for="check" class="checkbtn">
+	  <i class="fas fa-bars"></i>
+		
+	</label>
+	<ul>
+	  <li><strong><a href="Untitled-A1.html">M5Stack BASIC</a></strong></li>
+		<li><strong><a href="Untitled-B2.html">環境感測模組-U001-B</a></strong></li>
+		<li><strong><a href="Untitled-C3.html">土壤濕度感測模組-U019</a></strong></li>
+		<li><strong><a href="Untitled-D4.html">光強度感測模組-U021</a></strong></li>	
+		<li><strong><a href="Untitled-F.html">程式碼</a></strong></li>
+		</ul>
+	
+	</nav>
+	
+		
+			<section class="hero">
+			<div class="caption">
+				<div class="head">
+				<h1 style="font-size: 56px"><strong><p></p>M5Stack BASIC</strong></h1>
+			<p>M5Stack BASIC 是M5Stack開發套件系列中的一款，擁有超高性價比與豐富案例資源的入門級開發套件.對於開發新手來說, Basic 是不二之選.
+快速成型，超低門檻，直達產品級，M5Stack 開發板會是你物聯網開發的不二之選.傳統開發板只能用作驗證和學習，M5的出現賦予了開發板更多的可能性， M5Stack 開發板採用了工業級外殼，再加上精緻的外觀設計，整體性能穩定，除了驗證和學習的功能之外，還可以加速開發和產品化的進程.採用ESP32物聯網芯片.集成Wi-Fi和藍牙模塊，擁有16MB 的SPI 閃存，雙核低功耗的它在多種應用場景中有著非凡表現.由30 多個M5Stack 可堆疊模塊，40 多個可擴展單元組成的硬件拓展體系，能夠快速的幫助你搭建和驗證你的物聯網產品。</p>			
+				
+				</div>
+				<div class="cta">
+		  <h1>&nbsp;</h1>
+		  <h1><strong><a href="Untitled-B2.html">次 </a></strong></h1>
+		</div>
+				</div>			
+			<div class="svg">
+				<img src="A1.png" width="70%" alt="img">
+				</div>
+				
+				
+			</section>
+      <div class="product">
+  <div class="product-top">
+    <div class="product-title">
+      STACK &amp; PLAY
+    </div>
+    <div class="product-desc">
+      Standard 5×5cm functionally stacking modularized components hardware system.
+    </div>
+  </div>
+  <div class="product-content">
+    <div class="product-img">
+      <div class="product-img-top">
+        <img src="https://static-cdn.m5stack.com/resource/public/assets/product01.webp" />
+        <div class="product-item">
+          <div class="desc-instruct"></div>
+          <div class="desc-line"></div>
+          <div class="product-item-desc">
+            ESP32 microcontroller、 microSD card slot、USB-C、extension connectors.
+          </div>
+        </div>
+      </div>
+      <div class="product-img-middle">
+        <img src="https://static-cdn.m5stack.com/resource/public/assets/product02.webp" />
+        <div class="product-item">
+          <div class="product-item-desc">
+            The Stacking Functional MODULES Built for Customized Assembly.
+          </div>
+          <div class="desc-line"></div>
+          <div class="desc-instruct"></div>
+        </div>
+
+      </div>
+      <div class="product-img-bottom">
+        <img src="https://static-cdn.m5stack.com/resource/public/assets/product03.webp" />
+        <div class="product-item">
+          <div class="desc-instruct"></div>
+          <div class="desc-line"></div>
+          <div class="product-item-desc">
+            Easy Deployment with multifunctional BASE.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+   
+
+
+
+</body>
+
+</html>

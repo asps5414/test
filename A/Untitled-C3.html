@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>土壤濕度感測模組-U019</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+		<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+	<style>
+		*{
+			
+			padding: 0;
+			margin: 0;
+			text-decoration: none;
+			list-style: none;
+			box-sizing: border-box;
+		}
+		body{
+			
+			font-family: montserrat;
+		}
+		nav{
+    height: 80px;
+    width: 100%;
+		}
+		label.logo{
+    color: rgba(35,35,35,1.00);
+    font-size: 35px;
+    line-height: 80px;
+    padding-top: 0;
+    padding-right: 25px;
+    padding-bottom: 0;
+    font-weight: bold;
+    padding-left: 35px;
+    text-shadow: 0 0;
+		}
+		nav ul{
+    background-color: rgba(190,190,190,1.00);
+    padding-right: 35px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
+    text-align: left;
+		}
+		nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin-top: 0;
+    margin-right: 2px;
+    margin-left: 3%;
+		}
+		nav ul li a{
+    color: rgba(35,35,35,1.00);
+    font-size: 18px;
+    padding-right: 13px;
+    padding-left: 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    padding-top: 7px;
+		}
+		a.active,a:hover{
+    transition: .5s;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 5px rgba(135,225,253,1.00);
+		}
+	.checkbtn{
+    font-size: 30px;
+    color: #C3C3C3;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+		}
+		#check{
+			display: none;
+		}
+.head {
+    text-align: left;
+    clear: both;
+    margin-top: 18px;
+}
+.logo a {
+    color: rgba(0,100,61,1.00);
+}
+		@media(max-width:952px){
+			label.logo{
+				font-size: 30px;
+				padding-left: 50px;
+				
+			}
+			nav ul li a{
+				font-size: 16px;
+			}	
+		}
+		@media(max-width:858px){
+			.checkbtn{
+				display: block;
+			}
+			ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 80px;
+    left: 0;
+    text-align: center;
+						}
+			nav ul li{
+    display: block;
+    margin-top: 50px;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 50px;
+    line-height: 30px;
+					}
+			nav ul li a{
+				font-size: 20px;
+			}
+			a:hover,a.active{
+    background: none;
+    color: #57A0F8;
+    opacity: 1;
+			}
+			#check:checked ~ ul{
+    left: 0;
+    opacity: 0.5;
+			}
+		}
+		.back-video{
+    opacity: 0.3;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+				}
+		@media (min-aspect-ratio:16/9){
+			.back-video{
+    width: 100%;
+    height: auto;
+			}
+		}
+		@media (max-aspect-ratio:16/9){
+			.back-video{
+    width: auto;
+    height: 100%;
+			}
+			
+		}
+		
+		.cta a{
+    border-left: 5px solid #02C3BA;
+    border-right: 2px solid #02C3BA;
+    border-bottom: 5px solid #02C3BA;
+    border-top: 2px solid #02C3BA;
+    background-color: #02C3BA;
+    padding-right: 35px;
+    padding-left: 35px;
+    padding-bottom: 5px;
+    color: #fff;
+    font-size: 35px;
+    text-decoration: none;
+    transition: 0.3s;
+    border-radius: 18px;
+    margin-left: 55px;
+    padding-top: 10px;
+		}
+		.cta a:hover{
+			background: none;
+			color: #02C3BA;
+		}
+		.hero{
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    padding-top: 0px;
+    margin-left: 16px;
+    padding-left: 20px;
+    margin-top: 170px;
+		}
+		
+		
+		.hero .caption{
+			width: 100%;
+			text-align: left;
+			animation: caption-anim 2s ease;
+		}
+		@keyframes caption-anim {
+			0%{
+				opacity: 0;
+				transform: translatex(-1000px);
+		}
+			100%{
+				opacity: 1;
+				transform: translateY(0px);
+			}
+		}
+		
+		.caption .head{
+			margin-bottom: 70px;
+		}
+		.caption .head h1{
+			font-size: 46px;
+			font-weight: 500;
+			color: #494964;
+		}
+		.caption .head p{
+			font-size: 20px;
+			color: #494964;
+		}
+		.svg{
+    text-align: center;
+		}
+		.svg img{
+    width: 80%;
+    filter: drop-shadow(0 25px 25px black);
+    padding-right: 10px;
+    padding-left: 25px;
+    margin-left: 10px;
+    padding-top: 60px;
+    filter: drop-shadow(0 5px 5px black);
+    animation: svg-drop 2.3s ease;
+		}
+		
+		@keyframes svg-drop{
+			0%{
+				opacity: 0;
+				transform: translateY(-80px);
+		}
+			100%{
+				opacity: 1;
+				transform: translateY(0px);
+			}
+		}
+		
+	</style>
+</head>
+
+<body>
+	
+	<nav>
+	<video autoplay loop muted plays-inline class="back-video">
+		<source src="yt1s.com - M5Stack IoT智慧盆栽環境偵測雲端儲存_1080p.mp4">
+	  </video>
+	
+	<label for="check" class="checkbtn">
+	  <i class="fas fa-bars"></i>
+		
+	</label>
+	<label class="logo"><a href="Untitled-1.html">&nbsp;智慧監控溫室</a></label>
+	<ul>
+	  <li><strong><a href="Untitled-A1.html">M5Stack BASIC</a></strong></li>
+		<li><strong><a href="Untitled-B2.html">環境感測模組-U001-B</a></strong></li>
+		<li><strong><a href="Untitled-C3.html">土壤濕度感測模組-U019</a></strong></li>
+		<li><strong><a href="Untitled-D4.html">光強度感測模組-U021</a></strong></li>	
+		<li><strong><a href="Untitled-F.html">程式碼</a></strong></li>
+		</ul>
+	
+	</nav>
+	
+		
+			<section class="hero">
+			<div class="caption">
+				<div class="head">
+				<h1 style="font-size: 56px"><strong>土壤濕度感測模組-U019</strong></h1>
+			<p>EARTH 是一款土壤濕度感測器，用於採集土壤或是類似材料中的水分.感測器上有兩個測量探頭,將其插入待測量土壤中，由於水分含量越高，則擁有更好的導電性,通過測量兩探頭之間的電勢差，並進行ADC轉換,將檢測結果發送給M5Core.Unit上還集成了一個10K可調電阻，用於調節檢測門檻值。</p>			
+				
+				</div>
+				<div class="cta">
+		  <h1>&nbsp;</h1>
+		  <h1><strong><a href="Untitled-D4.html">次 </a></strong></h1>
+		</div>
+				</div>			
+			<div class="svg">
+				<img src="earth_05.png" width="70%" alt="img">
+				</div>
+				
+				
+			</section>
+		
+		
+	
+</body>
+</html>
